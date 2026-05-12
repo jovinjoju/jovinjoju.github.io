@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jovin Joju Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #292929;
+    color: #fff;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+nav h2 {
+    font-weight: 500;
+}
+
+nav a {
+    color: #ccc;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1526401485004-2fda9f68f51c');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 80px;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.hero span {
+    color: #fff;
+}
+
+/* SECTION */
+section {
+    padding: 80px 10%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* CARDS */
+.card {
+    background: #1f1f1f;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* PROJECTS */
+.projects a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #616161;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a1a1a;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <h2>Jovin.</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>creativity</h1>
+        <p>We believe creativity begins with an observation</p>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I'm Jovin Joju, a BCA student passionate about programming, cybersecurity, 
+        and emerging technologies. I enjoy building solutions and continuously learning 
+        new skills to grow in the tech field.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Skills</h2>
+
+    <div class="card">
+        <p><b>Programming:</b> C, C++, Java, SQL, HTML</p>
+    </div>
+
+    <div class="card">
+        <p><b>Tools:</b> MS Word, Excel, PowerPoint</p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>GitHub Portfolio</h3>
+        <p>Explore all my coding projects and repositories.</p>
+        <a href="https://github.com/jovinjoju" target="_blank">View GitHub →</a>
+    </div>
+
+    <!-- You can add more projects here later -->
+
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+    <h2>Experience</h2>
+
+    <div class="card">
+        <h3>Robotics Trainer (Volunteer)</h3>
+        <p>Narayana Educational Institutions</p>
+        <p>
+            Conducted robotics sessions and taught STEM concepts to students.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+
+    <p>Email: jovinjoju1610@gmail.com</p>
+
+    <a class="btn" href="https://github.com/jovinjoju" target="_blank">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/jovin-joju-924831377/" target="_blank">LinkedIn</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Jovin Joju</p>
+</footer>
+
+</body>
+</html>
