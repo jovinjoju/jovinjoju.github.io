@@ -3,220 +3,1143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jovin Joju Portfolio</title>
+<title>Jovin Joju — BCA Student & Tech Enthusiast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+  :root {
+    --cream: #f5f3ee;
+    --cream-dark: #ede9e0;
+    --cream-border: #ddd8cc;
+    --ink: #1a1714;
+    --ink-mid: #4a4540;
+    --ink-light: #8a857e;
+    --amber: #c47c2b;
+    --amber-light: #f0d5a8;
+    --amber-pale: #faf3e4;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
 
-body {
-    background: #292929;
-    color: #fff;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* NAVBAR */
-nav {
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+    cursor: default;
+  }
+
+  /* subtle grain overlay */
+  body::before {
+    content: '';
     position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 20px 50px;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-}
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(245, 243, 238, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-border);
+  }
 
-nav h2 {
-    font-weight: 500;
-}
-
-nav a {
-    color: #ccc;
-    margin-left: 20px;
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
     text-decoration: none;
-}
+    letter-spacing: -0.3px;
+  }
 
-nav a:hover {
-    color: #fff;
-}
+  .nav-logo span {
+    color: var(--amber);
+  }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-    url('https://images.unsplash.com/photo-1526401485004-2fda9f68f51c');
-    background-size: cover;
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mid);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    padding: 80px 60px 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--cream-border);
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-mid);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-light);
+    margin-bottom: 36px;
+  }
+
+  .hero-bio {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 44px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--amber);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--cream-border);
+    color: var(--ink-mid);
+    padding: 14px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    transform: translateY(-1px);
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px 60px 60px 60px;
+    gap: 0;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .stat {
+    padding: 28px 24px;
+    border-right: 1px solid var(--cream-border);
+    border-bottom: 1px solid var(--cream-border);
+  }
+
+  .stat:nth-child(2), .stat:nth-child(4) { border-right: none; }
+  .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    background: var(--amber-pale);
+    color: var(--amber);
+    border: 1px solid var(--amber-light);
+    border-radius: 2px;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section {
+    padding: 100px 60px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 64px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-border);
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--cream-border);
+  }
+
+  /* ── ABOUT ── */
+  .about-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .about-text p:first-child {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .about-aside {
+    border-left: 3px solid var(--amber);
+    padding-left: 24px;
+  }
+
+  .aside-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+  }
+
+  .aside-item {
+    margin-bottom: 12px;
+  }
+
+  .aside-item strong {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .aside-item span {
+    font-size: 12px;
+    color: var(--ink-light);
+    font-family: var(--mono);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    background: var(--cream-border);
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .skill-card {
+    background: var(--cream);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+
+  .skill-card:hover {
+    background: var(--amber-pale);
+  }
+
+  .skill-icon {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+
+  .skill-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 4px 10px;
+    border: 1px solid var(--cream-border);
+    border-radius: 2px;
+    color: var(--ink-mid);
+    background: var(--cream-dark);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-section {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--cream-border);
+    border-bottom: 1px solid var(--cream-border);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--cream-border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 52px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-border);
+  }
+
+  .timeline-item.current::before {
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .timeline-school {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .timeline-degree {
+    font-size: 14px;
+    color: var(--ink-mid);
+    margin-bottom: 4px;
+  }
+
+  .timeline-loc {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .cert-card {
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    padding: 32px 28px;
+    background: var(--cream);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .cert-card:hover {
+    border-color: var(--amber);
+    transform: translateY(-2px);
+  }
+
+  .cert-badge {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: var(--amber-pale);
+    border: 1px solid var(--amber-light);
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-}
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--amber);
+  }
 
-.hero h1 {
-    font-size: 80px;
-    font-weight: 300;
-    letter-spacing: 3px;
-}
+  .cert-info strong {
+    display: block;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
 
-.hero p {
-    margin-top: 10px;
-    color: #aaa;
-}
+  .cert-info span {
+    font-size: 13px;
+    color: var(--ink-light);
+    font-family: var(--mono);
+  }
 
-.hero span {
-    color: #fff;
-}
+  /* ── EXPERIENCE ── */
+  .exp-card {
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
 
-/* SECTION */
-section {
-    padding: 80px 10%;
-}
+  .exp-header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
 
-h2 {
-    margin-bottom: 20px;
-    font-weight: 400;
-}
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
 
-/* CARDS */
-.card {
-    background: #1f1f1f;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
-    transition: 0.3s;
-}
+  .exp-org {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+  .exp-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
 
-/* PROJECTS */
-.projects a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* BUTTON */
-.btn {
+  .exp-type {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 5px 12px;
+    background: rgba(196, 124, 43, 0.2);
+    color: var(--amber);
+    border: 1px solid rgba(196, 124, 43, 0.4);
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #616161;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-}
+    margin-bottom: 8px;
+  }
 
-.btn:hover {
-    background: #fff;
-    color: #000;
-}
+  .exp-loc {
+    font-size: 12px;
+    color: rgba(245, 243, 238, 0.5);
+    font-family: var(--mono);
+  }
 
-/* FOOTER */
-footer {
+  .exp-body {
+    padding: 36px 40px;
+    background: var(--cream);
+  }
+
+  .exp-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .exp-points li {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .exp-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 300;
+  }
+
+  /* ── INTERESTS ── */
+  .interests-section {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--cream-border);
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    background: var(--cream-border);
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .interest-tile {
+    background: var(--cream-dark);
+    padding: 40px 28px;
     text-align: center;
-    padding: 20px;
-    background: #1a1a1a;
-}
+    transition: background 0.2s;
+  }
 
-/* RESPONSIVE */
-@media(max-width: 768px) {
-    .hero h1 {
-        font-size: 40px;
-    }
-}
+  .interest-tile:hover { background: var(--amber-pale); }
+
+  .interest-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .interest-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .contact-sub {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 16px 20px;
+    border: 1px solid var(--cream-border);
+    border-radius: 4px;
+    background: var(--cream);
+    transition: border-color 0.2s, transform 0.15s;
+    color: var(--ink);
+  }
+
+  .contact-link:hover {
+    border-color: var(--amber);
+    transform: translateX(4px);
+  }
+
+  .contact-link-icon {
+    font-family: var(--mono);
+    font-size: 11px;
+    width: 36px;
+    height: 36px;
+    background: var(--amber-pale);
+    border: 1px solid var(--amber-light);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--amber);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .contact-link-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .contact-link-text span {
+    font-size: 12px;
+    color: var(--ink-light);
+    font-family: var(--mono);
+  }
+
+  .contact-cta {
+    padding: 32px;
+    background: var(--ink);
+    border-radius: 4px;
+    color: var(--cream);
+  }
+
+  .contact-cta p {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .contact-cta small {
+    font-size: 13px;
+    color: rgba(245, 243, 238, 0.6);
+    font-family: var(--mono);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .contact-cta a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--amber);
+    color: var(--cream);
+    padding: 13px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+
+  .contact-cta a:hover { opacity: 0.85; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--cream-border);
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+  }
+
+  footer a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both 0.1s; }
+  .hero-name    { animation: fadeUp 0.6s ease both 0.2s; }
+  .hero-title   { animation: fadeUp 0.6s ease both 0.3s; }
+  .hero-bio     { animation: fadeUp 0.6s ease both 0.4s; }
+  .hero-ctas    { animation: fadeUp 0.6s ease both 0.5s; }
+  .hero-stats   { animation: fadeUp 0.6s ease both 0.35s; }
+  .hero-tags    { animation: fadeUp 0.6s ease both 0.45s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px 40px; border-right: none; border-bottom: 1px solid var(--cream-border); }
+    .hero-right { padding: 40px 24px 60px; }
+    section { padding: 60px 24px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .exp-header { flex-direction: column; }
+    .exp-meta { text-align: left; }
+    footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
 </style>
-
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav>
-    <h2>Jovin.</h2>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+  <a class="nav-logo" href="#">Jovin<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-    <div>
-        <h1>creativity</h1>
-        <p>We believe creativity begins with an observation</p>
+  <div class="hero-left">
+    <div class="hero-eyebrow">BCA Student · Bengaluru, India</div>
+    <h1 class="hero-name">Jovin<br><em>Joju</em></h1>
+    <p class="hero-title">Programmer & Cybersecurity Enthusiast</p>
+    <p class="hero-bio">
+      Motivated technologist with a strong foundation in programming and a keen interest in cybersecurity. Certified in Robotics, AI, and Cyber Analysis — always learning, always building.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="https://github.com/jovinjoju" target="_blank" class="btn-secondary">GitHub →</a>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Programming Languages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">BCA</div>
+        <div class="stat-label">Current Degree</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Year Experience</div>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">C / C++</span>
+      <span class="tag">Java</span>
+      <span class="tag">SQL</span>
+      <span class="tag">HTML</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Robotics</span>
+      <span class="tag">AI &amp; STEM</span>
+    </div>
+  </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>
-        I'm Jovin Joju, a BCA student passionate about programming, cybersecurity, 
-        and emerging technologies. I enjoy building solutions and continuously learning 
-        new skills to grow in the tech field.
-    </p>
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>I'm a BCA student at St. Joseph's University, Bengaluru, passionate about the intersection of programming and cybersecurity. I believe the best way to understand technology is to build it — and then figure out how to break it.</p>
+      <p>My journey started with the basics of C and C++, expanded through Java and SQL, and has grown into a genuine fascination with how systems can be made more secure. I hold certifications in STEM & Robotics and Cyber Analysis, and I've had the rewarding experience of teaching those skills to others as a volunteer trainer.</p>
+      <p>I'm currently seeking part-time opportunities where I can apply my technical knowledge, grow alongside experienced professionals, and contribute meaningfully to real-world projects.</p>
+    </div>
+    <div class="about-aside">
+      <p class="aside-label">Quick Info</p>
+      <div class="aside-item">
+        <strong>Location</strong>
+        <span>Bengaluru, India</span>
+      </div>
+      <div class="aside-item">
+        <strong>Degree</strong>
+        <span>Bachelor of Computer Applications</span>
+      </div>
+      <div class="aside-item">
+        <strong>University</strong>
+        <span>St. Joseph's University</span>
+      </div>
+      <div class="aside-item">
+        <strong>Email</strong>
+        <span>jovinjoju1610@gmail.com</span>
+      </div>
+      <div class="aside-item">
+        <strong>Available For</strong>
+        <span>Part-time / Internships</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
-
-    <div class="card">
-        <p><b>Programming:</b> C, C++, Java, SQL, HTML</p>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">⌨ Languages</div>
+      <div class="skill-name">Programming</div>
+      <div class="skill-items">
+        <span class="skill-pill">C</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">HTML</span>
+      </div>
     </div>
-
-    <div class="card">
-        <p><b>Tools:</b> MS Word, Excel, PowerPoint</p>
+    <div class="skill-card">
+      <div class="skill-icon">🛡 Security</div>
+      <div class="skill-name">Cybersecurity</div>
+      <div class="skill-items">
+        <span class="skill-pill">Cyber Analysis</span>
+        <span class="skill-pill">Level 1 Certified</span>
+        <span class="skill-pill">Threat Awareness</span>
+      </div>
     </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊 Productivity</div>
+      <div class="skill-name">Microsoft Office</div>
+      <div class="skill-items">
+        <span class="skill-pill">MS Word</span>
+        <span class="skill-pill">MS Excel</span>
+        <span class="skill-pill">PowerPoint</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖 STEM</div>
+      <div class="skill-name">Robotics & AI</div>
+      <div class="skill-items">
+        <span class="skill-pill">Robotics</span>
+        <span class="skill-pill">AI Fundamentals</span>
+        <span class="skill-pill">STEM Training</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="projects">
-    <h2>Projects</h2>
-
-    <div class="card">
-        <h3>GitHub Portfolio</h3>
-        <p>Explore all my coding projects and repositories.</p>
-        <a href="https://github.com/jovinjoju" target="_blank">View GitHub →</a>
+<!-- EDUCATION -->
+<section id="education" class="edu-section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item current">
+      <div class="timeline-date">June 2025 — Present</div>
+      <div class="timeline-school">St. Joseph's University</div>
+      <div class="timeline-degree">Bachelor of Computer Applications (BCA)</div>
+      <div class="timeline-loc">Bengaluru, India</div>
     </div>
+    <div class="timeline-item">
+      <div class="timeline-date">June 2023 — March 2025</div>
+      <div class="timeline-school">St. Joseph's Pre-University College</div>
+      <div class="timeline-degree">CEBA — Computer, Economics, Business, Accountancy</div>
+      <div class="timeline-loc">Bengaluru, India</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Completed</div>
+      <div class="timeline-school">St. Francis School</div>
+      <div class="timeline-degree">Secondary Education (ICSE)</div>
+      <div class="timeline-loc">Bengaluru, India</div>
+    </div>
+  </div>
+</section>
 
-    <!-- You can add more projects here later -->
-
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-badge">✦</div>
+      <div class="cert-info">
+        <strong>STEM, AI & Robotics Certification</strong>
+        <span>ThinkPro Academy</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">🛡</div>
+      <div class="cert-info">
+        <strong>Cyber Analyst Level 1 Certificate</strong>
+        <span>Cybersecurity Certification Body</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section>
-    <h2>Experience</h2>
-
-    <div class="card">
-        <h3>Robotics Trainer (Volunteer)</h3>
-        <p>Narayana Educational Institutions</p>
-        <p>
-            Conducted robotics sessions and taught STEM concepts to students.
-        </p>
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Robotics Trainer</div>
+        <div class="exp-org">Narayana Educational Institutions</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-type">Volunteer</div>
+        <div class="exp-loc">Hulimavu, Bengaluru</div>
+      </div>
     </div>
+    <div class="exp-body">
+      <ul class="exp-points">
+        <li>Conducted hands-on robotics training sessions for school students, introducing core concepts of STEM and engineering thinking.</li>
+        <li>Explained complex technical concepts in simple, age-appropriate language tailored for young learners.</li>
+        <li>Developed strong communication, leadership, and teaching skills through interactive and engaging sessions.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests-section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Areas of Interest</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="interests-grid">
+    <div class="interest-tile">
+      <span class="interest-icon">💻</span>
+      <div class="interest-name">Programming</div>
+    </div>
+    <div class="interest-tile">
+      <span class="interest-icon">🔐</span>
+      <div class="interest-name">Cybersecurity</div>
+    </div>
+    <div class="interest-tile">
+      <span class="interest-icon">🕵️</span>
+      <div class="interest-name">Cyber Analysis</div>
+    </div>
+    <div class="interest-tile">
+      <span class="interest-icon">🚀</span>
+      <div class="interest-name">Emerging Tech</div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Contact</h2>
-
-    <p>Email: jovinjoju1610@gmail.com</p>
-
-    <a class="btn" href="https://github.com/jovinjoju" target="_blank">GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/jovin-joju-924831377/" target="_blank">LinkedIn</a>
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-inner">
+    <div>
+      <p class="contact-intro">"Let's build something meaningful together."</p>
+      <p class="contact-sub">I'm open to part-time roles, internships, and collaborations. Whether you have a project in mind or just want to connect — my inbox is always open.</p>
+      <div class="contact-links">
+        <a href="mailto:jovinjoju1610@gmail.com" class="contact-link">
+          <div class="contact-link-icon">@</div>
+          <div class="contact-link-text">
+            <strong>Email</strong>
+            <span>jovinjoju1610@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/jovin-joju-924831377/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div class="contact-link-text">
+            <strong>LinkedIn</strong>
+            <span>jovin-joju-924831377</span>
+          </div>
+        </a>
+        <a href="https://github.com/jovinjoju" target="_blank" class="contact-link">
+          <div class="contact-link-icon">gh</div>
+          <div class="contact-link-text">
+            <strong>GitHub</strong>
+            <span>github.com/jovinjoju</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <p>Available for part-time opportunities & internships</p>
+      <small>Currently pursuing BCA · Bengaluru, India</small>
+      <a href="mailto:jovinjoju1610@gmail.com">Send a message →</a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2026 Jovin Joju</p>
+  <p>© 2026 Jovin Joju — Built with intention.</p>
+  <p>
+    <a href="https://github.com/jovinjoju" target="_blank">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/jovin-joju-924831377/" target="_blank">LinkedIn</a>
+  </p>
 </footer>
 
 </body>
